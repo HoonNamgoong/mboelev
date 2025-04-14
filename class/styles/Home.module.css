@@ -54,6 +54,7 @@
   padding: 2px 4px;
   border-radius: 4px;
   font-weight: 600;
+  border: 1px solid red;
 }
 
 .ctas {
