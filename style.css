@@ -154,6 +154,72 @@ main {
   background-color: #f8f9fa;
 }
 
+/* Stats Section */
+#stats {
+  padding: 4rem 5%;
+  background-color: var(--container-bg);
+  text-align: center;
+  margin-top: -2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--accent-color);
+}
+
+.plus {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--accent-color);
+}
+
+.stat-item p {
+  font-weight: 600;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+/* Partners Section */
+#partners {
+  padding: 6rem 5%;
+  text-align: center;
+}
+
+.partners-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  opacity: 0.6;
+}
+
+.logo-item {
+  font-weight: 900;
+  font-size: 1.25rem;
+  letter-spacing: 2px;
+  padding: 1rem;
+  border: 2px solid var(--input-border);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.logo-item:hover {
+  opacity: 1;
+  color: var(--accent-color);
+  border-color: var(--accent-color);
+  transform: scale(1.05);
+}
+
 /* Features Section */
 #features {
   padding: 6rem 5%;

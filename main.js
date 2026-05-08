@@ -25,7 +25,29 @@ function updateButtonText(theme) {
   themeToggle.textContent = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
 }
 
-// Scroll Handling: Reveal & FAB & Progress Bar
+// Stats Counter Logic
+const stats = document.querySelectorAll('.stat-number');
+const statsSection = document.getElementById('stats');
+let started = false;
+
+function startCount(el) {
+  const target = parseInt(el.dataset.target);
+  let count = 0;
+  const speed = target / 50; // Adjust speed
+  
+  const updateCount = () => {
+    count += speed;
+    if (count < target) {
+      el.textContent = Math.ceil(count);
+      setTimeout(updateCount, 20);
+    } else {
+      el.textContent = target;
+    }
+  };
+  updateCount();
+}
+
+// Scroll Handling
 window.addEventListener('scroll', () => {
   // Reveal Animation
   const revealElements = document.querySelectorAll('.reveal');
@@ -50,9 +72,18 @@ window.addEventListener('scroll', () => {
   const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
   const scrolled = (winScroll / height) * 100;
   scrollProgress.style.width = scrolled + "%";
+
+  // Stats Counter Trigger
+  if (statsSection) {
+    const sectionTop = statsSection.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (sectionTop < windowHeight - 100 && !started) {
+      stats.forEach(stat => startCount(stat));
+      started = true;
+    }
+  }
 });
 
-// Initial check for reveal
 window.dispatchEvent(new Event('scroll'));
 
 // FAQ Accordion Logic
