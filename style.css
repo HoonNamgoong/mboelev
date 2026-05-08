@@ -5,77 +5,175 @@
   --input-bg: #ffffff;
   --input-border: #ced4da;
   --input-text: #212529;
-  --button-bg: #007bff;
+  --accent-color: #007bff;
+  --accent-hover: #0056b3;
   --button-text: #ffffff;
   --header-bg: #ffffff;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --hero-gradient: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
 }
 
 [data-theme="dark"] {
-  --bg-color: #121212;
+  --bg-color: #0f111a;
   --text-color: #e9ecef;
-  --container-bg: #1e1e1e;
-  --input-bg: #2d2d2d;
-  --input-border: #444444;
+  --container-bg: #1a1c23;
+  --input-bg: #252836;
+  --input-border: #3f4458;
   --input-text: #ffffff;
-  --button-bg: #375a7f;
+  --accent-color: #4da3ff;
+  --accent-hover: #1a8cff;
   --button-text: #ffffff;
-  --header-bg: #1e1e1e;
-  --shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --header-bg: #1a1c23;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --hero-gradient: linear-gradient(135deg, #1a237e 0%, #007bff 100%);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   transition: background-color 0.3s, color 0.3s;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  line-height: 1.6;
 }
 
 header {
-  padding: 1rem 2rem;
+  padding: 1rem 5%;
   background-color: var(--header-bg);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-color);
+  letter-spacing: -0.5px;
 }
 
 main {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 2rem;
 }
 
-h1 {
-  margin-bottom: 2rem;
+/* Hero Section */
+#hero {
+  padding: 8rem 5% 6rem;
+  background: var(--hero-gradient);
+  color: #ffffff;
+  text-align: center;
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.hero-content p {
+  font-size: 1.25rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background-color: #ffffff;
+  color: #007bff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  background-color: #f8f9fa;
+}
+
+/* Features Section */
+#features {
+  padding: 6rem 5%;
+  text-align: center;
+}
+
+.section-header {
+  margin-bottom: 4rem;
+}
+
+.underline {
+  width: 60px;
+  height: 4px;
+  background: var(--accent-color);
+  margin: 1rem auto;
+  border-radius: 2px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  background-color: var(--container-bg);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  transition: all 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-card .icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+/* Contact Section */
+#contact-section {
+  padding: 6rem 5%;
+  background-color: rgba(0,0,0,0.02);
+  display: flex;
+  justify-content: center;
 }
 
 .contact-container {
   background-color: var(--container-bg);
-  padding: 2.5rem;
-  border-radius: 12px;
+  padding: 3rem;
+  border-radius: 24px;
   box-shadow: var(--shadow);
   width: 100%;
-  max-width: 500px;
+  max-width: 550px;
   transition: background-color 0.3s;
-}
-
-h2 {
-  margin-top: 0;
-  text-align: center;
-  color: var(--button-bg);
-}
-
-p {
-  text-align: center;
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
-  opacity: 0.8;
 }
 
 .form-group {
@@ -86,59 +184,70 @@ label {
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  font-size: 0.9rem;
 }
 
 input, textarea {
   width: 100%;
-  padding: 0.75rem;
+  padding: 1rem;
   border: 1px solid var(--input-border);
-  border-radius: 6px;
+  border-radius: 12px;
   background-color: var(--input-bg);
   color: var(--input-text);
   font-size: 1rem;
   box-sizing: border-box;
-  transition: border-color 0.3s, background-color 0.3s;
+  transition: all 0.3s;
 }
 
 input:focus, textarea:focus {
   outline: none;
-  border-color: var(--button-bg);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(0, 123, 255, 0.1);
 }
 
 .submit-btn {
   width: 100%;
-  padding: 0.75rem;
-  background-color: var(--button-bg);
+  padding: 1rem;
+  background-color: var(--accent-color);
   color: var(--button-text);
   border: none;
-  border-radius: 6px;
-  font-size: 1rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: opacity 0.3s, transform 0.1s;
+  transition: all 0.3s;
 }
 
 .submit-btn:hover {
-  opacity: 0.9;
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
 }
 
-.submit-btn:active {
-  transform: scale(0.98);
+/* Footer */
+footer {
+  padding: 4rem 5%;
+  text-align: center;
+  border-top: 1px solid var(--input-border);
+  opacity: 0.7;
 }
 
 #theme-toggle {
   background-color: transparent;
-  border: 1px solid var(--button-bg);
-  color: var(--button-bg);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
+  border: 2px solid var(--accent-color);
+  color: var(--accent-color);
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
   cursor: pointer;
-  font-weight: 600;
+  font-weight: 700;
   transition: all 0.3s;
 }
 
 #theme-toggle:hover {
-  background-color: var(--button-bg);
-  color: var(--button-text);
+  background-color: var(--accent-color);
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
 }
