@@ -579,9 +579,24 @@ main {
   transition: transform 0.3s;
 }
 
+/* Comments Section */
+#comments {
+  padding: 6rem 5%;
+}
+
+.comments-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: var(--container-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
 /* Contact Section */
 #contact-section {
   padding: 8rem 5%;
+  background-color: rgba(0,0,0,0.02);
   display: flex;
   justify-content: center;
 }
