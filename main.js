@@ -4,6 +4,9 @@ const fab = document.getElementById('fab');
 const scrollProgress = document.getElementById('scroll-progress');
 const contactForm = document.getElementById('contact-form');
 const formStatus = document.getElementById('form-status');
+const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
 
 // Theme Toggle Logic
 const savedTheme = localStorage.getItem('theme');
@@ -25,6 +28,23 @@ function updateButtonText(theme) {
   themeToggle.textContent = theme === 'dark' ? 'Switch to Light Mode' : 'Switch to Dark Mode';
 }
 
+// Mobile Menu Logic
+if (mobileMenuToggle) {
+  mobileMenuToggle.addEventListener('click', () => {
+    mobileMenuToggle.classList.toggle('active');
+    mobileNavOverlay.classList.toggle('active');
+    body.classList.toggle('menu-open');
+  });
+}
+
+mobileNavLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenuToggle.classList.remove('active');
+    mobileNavOverlay.classList.remove('active');
+    body.classList.remove('menu-open');
+  });
+});
+
 // Stats Counter Logic
 const stats = document.querySelectorAll('.stat-number');
 const statsSection = document.getElementById('stats');
@@ -33,7 +53,7 @@ let started = false;
 function startCount(el) {
   const target = parseInt(el.dataset.target);
   let count = 0;
-  const speed = target / 50; // Adjust speed
+  const speed = target / 50;
   
   const updateCount = () => {
     count += speed;
