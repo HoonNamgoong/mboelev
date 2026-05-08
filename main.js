@@ -1,5 +1,6 @@
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
+const fab = document.getElementById('fab');
 
 // Theme Toggle Logic
 const savedTheme = localStorage.getItem('theme');
@@ -39,11 +40,14 @@ faqQuestions.forEach(question => {
   question.addEventListener('click', () => {
     const item = question.parentElement;
     item.classList.toggle('active');
-    
-    // Optional: Close other items when one is opened
-    // const otherItems = document.querySelectorAll('.faq-item');
-    // otherItems.forEach(oi => {
-    //   if (oi !== item) oi.classList.remove('active');
-    // });
   });
+});
+
+// FAB Visibility on Scroll
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    fab.classList.add('show');
+  } else {
+    fab.classList.remove('show');
+  }
 });

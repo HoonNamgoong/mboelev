@@ -76,6 +76,23 @@ header {
   letter-spacing: -0.5px;
 }
 
+.desktop-nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.desktop-nav a:hover {
+  color: var(--accent-color);
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -207,15 +224,47 @@ main {
   transition: all 0.3s;
 }
 
-.step:hover .step-number {
-  background-color: var(--accent-color);
-  color: #ffffff;
-  transform: rotate(360deg);
+/* Testimonials Section */
+#testimonials {
+  padding: 6rem 5%;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.testimonial-card {
+  background-color: var(--container-bg);
+  padding: 2.5rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border-left: 5px solid var(--accent-color);
+}
+
+.quote {
+  font-style: italic;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.user-info strong {
+  display: block;
+  color: var(--accent-color);
+}
+
+.user-info span {
+  font-size: 0.85rem;
+  opacity: 0.7;
 }
 
 /* FAQ Section */
 #faq {
   padding: 6rem 5%;
+  background-color: rgba(0,0,0,0.02);
 }
 
 .faq-container {
@@ -271,7 +320,6 @@ main {
 /* Contact Section */
 #contact-section {
   padding: 8rem 5%;
-  background-color: rgba(0,0,0,0.02);
   display: flex;
   justify-content: center;
 }
@@ -285,12 +333,96 @@ main {
   max-width: 550px;
 }
 
+/* Floating Action Button */
+#fab {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  text-decoration: none;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  z-index: 999;
+  transition: all 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#fab.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+#fab:hover {
+  transform: scale(1.1);
+  background-color: var(--accent-hover);
+}
+
 /* Footer */
 footer {
-  padding: 4rem 5%;
-  text-align: center;
+  background-color: var(--container-bg);
+  padding: 4rem 5% 2rem;
   border-top: 1px solid var(--input-border);
+  transition: background-color 0.3s;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-brand .logo {
+  margin-bottom: 1rem;
+}
+
+.footer-brand p {
+  font-size: 0.9rem;
   opacity: 0.7;
+}
+
+.footer-links h4, .footer-social h4 {
+  margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+  display: block;
+  text-decoration: none;
+  color: var(--text-color);
+  opacity: 0.7;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--accent-color);
+}
+
+.social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0.7;
+  font-size: 0.9rem;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--input-border);
+  opacity: 0.5;
+  font-size: 0.85rem;
 }
 
 #theme-toggle {
@@ -312,5 +444,8 @@ footer {
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.5rem;
+  }
+  .desktop-nav {
+    display: none;
   }
 }
