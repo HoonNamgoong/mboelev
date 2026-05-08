@@ -11,6 +11,7 @@
   --header-bg: #ffffff;
   --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   --hero-gradient: linear-gradient(135deg, #007bff 0%, #00d4ff 100%);
+  --step-num-bg: rgba(0, 123, 255, 0.1);
 }
 
 [data-theme="dark"] {
@@ -26,6 +27,7 @@
   --header-bg: #1a1c23;
   --shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   --hero-gradient: linear-gradient(135deg, #1a237e 0%, #007bff 100%);
+  --step-num-bg: rgba(77, 163, 255, 0.1);
 }
 
 html {
@@ -72,7 +74,7 @@ main {
   background: var(--hero-gradient);
   color: #ffffff;
   text-align: center;
-  clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
 }
 
 .hero-content h1 {
@@ -158,10 +160,59 @@ main {
   color: var(--accent-color);
 }
 
-/* Contact Section */
-#contact-section {
+/* Process Section */
+#process {
   padding: 6rem 5%;
   background-color: rgba(0,0,0,0.02);
+}
+
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+  position: relative;
+}
+
+.step-number {
+  width: 60px;
+  height: 60px;
+  background-color: var(--step-num-bg);
+  color: var(--accent-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1.25rem;
+  margin: 0 auto 1.5rem;
+  transition: all 0.3s;
+}
+
+.step:hover .step-number {
+  background-color: var(--accent-color);
+  color: #ffffff;
+  transform: rotate(360deg);
+}
+
+.step h4 {
+  margin-bottom: 0.75rem;
+  font-size: 1.15rem;
+}
+
+.step p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Contact Section */
+#contact-section {
+  padding: 8rem 5%;
   display: flex;
   justify-content: center;
 }
@@ -173,7 +224,6 @@ main {
   box-shadow: var(--shadow);
   width: 100%;
   max-width: 550px;
-  transition: background-color 0.3s;
 }
 
 .form-group {
@@ -249,5 +299,8 @@ footer {
 @media (max-width: 768px) {
   .hero-content h1 {
     font-size: 2.5rem;
+  }
+  .process-steps {
+    grid-template-columns: 1fr;
   }
 }
